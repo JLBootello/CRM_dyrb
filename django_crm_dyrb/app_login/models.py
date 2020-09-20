@@ -2,15 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-class representacion (models.Model):
-    '''En esta tabla recogemos las relaciones entre las tablas de comercial,
-    cliente_representada y representada'''
-    idrepresentacion = models.AutoField(primary_key=True)
-    idrepresentada = models.ForeignKey(representada, on_delete=models.CASCADE)
-    idcliente_representada = models.ForeignKey(cliente_representada, on_delete=models.CASCADE)
-    idstuff_ventas = models.ForeignKey(stuff_ventas, on_delete=models.CASCADE)
 
-class usuario (models.Model):
+class Usuario (models.Model):
     '''Esta es la tabla usuario en la que crearemos los usuarios de la
     base de datos.
     Hay un campo con los valores predefinidos, nivel_permiso'''
@@ -24,10 +17,10 @@ class usuario (models.Model):
     password = models.CharField(max_length=45)
     nivel_permiso = models.CharField(max_length=45, choices=NIVEL_PERMISO)
 
-class representada(models.Model):
+class Representada(models.Model):
     ''' En esta tabla recogemos los datos de las representadas '''
     idrepresentada = models.AutoField(primary_key=True)
-    nombre_fiscal = models.CharField(max_length=45)
+    nombre_fiscal = models.CharField(max_length=45, blank=False)
     cif = models.IntegerField(blank=False)
     nombre_comercial = models.CharField(max_length=45)
     direccion = models.CharField(max_length=200)
@@ -36,16 +29,17 @@ class representada(models.Model):
     telefono_corp_1 = models.IntegerField(blank=False)
     telefono_corp_2 = models.IntegerField(blank=True)
     email_corp = models.EmailField(max_length=200, blank=False, unique=True,
-        error_messages={'required': 'Por favor, introduzca una dirección de correo valida',
+        error_messages={'blank': 'Por favor, introduzca una dirección de correo valida',
                         'unique': 'Una cuenta con esta dirección de correo ya existe.'},)
     web = models.CharField(max_length=200)
 
-class contacto_representada(models.Model):
+class Contacto_Representada(models.Model):
     '''En esta tabla recogemos aquellos contactos que provienen de las
         representadas.
         Va a haber dos campos con los valores restringidos, departamento y
         nivel_responsabilidad.'''
     DEPARTAMENTO = (
+        ('PA', 'Propietario'),
         ('C', 'Comercial'),
         ('F', 'Financiero'),
         ('P', 'Producción'),
@@ -55,17 +49,19 @@ class contacto_representada(models.Model):
         ('M', 'Medio'),
         ('B', 'Bajo'),
     )
-    idrepresentada = models.ForeignKey(representada, on_delete=models.CASCADE)
+    idrepresentada = models.ForeignKey(Representada, on_delete=models.CASCADE)
     idcontacto_representada = models.AutoField(primary_key=True)
-    nombre_completo = models.CharField(max_length=45)
+    nombre_completo = models.CharField(max_length=45, blank=False)
     telefono_movil = models.IntegerField(blank=True)
-    email = models.EmailField(max_length=200, blank=True, unique=True)
+    email = models.EmailField(max_length=200, blank=False, unique=True,
+        error_messages={'blank': 'Por favor, introduzca una dirección de correo valida',
+                        'unique': 'Una cuenta con esta dirección de correo ya existe.'},)
     nivel_decision = models.CharField(max_length=45, choices=NIVEL_DECISION)
     departamento = models.CharField(max_length=45, choices=DEPARTAMENTO)
 
-class cliente_representada (models.Model):
+class Cliente_Representada (models.Model):
     idcliente_representada = models.AutoField(primary_key=True)
-    nombre_fiscal = models.CharField(max_length=45)
+    nombre_fiscal = models.CharField(max_length=45, blank=False)
     cif = models.IntegerField(blank=False)
     nombre_comercial = models.CharField(max_length=45)
     direccion = models.CharField(max_length=200)
@@ -74,16 +70,17 @@ class cliente_representada (models.Model):
     telefono_corp_1 = models.IntegerField(blank=False)
     telefono_corp_2 = models.IntegerField(blank=True)
     email_corp = models.EmailField(max_length=200, blank=False, unique=True,
-                                   error_messages={'required': 'Por favor, introduzca una dirección de correo valida',
-                                                   'unique': 'Una cuenta con esta dirección de correo ya existe.'}, )
+        error_messages={'blank': 'Por favor, introduzca una dirección de correo valida',
+                        'unique': 'Una cuenta con esta dirección de correo ya existe.'},)
     web = models.CharField(max_length=200)
 
-class contacto_cliente_representada(models.Model):
+class Contacto_Cliente_Representada(models.Model):
     '''En esta tabla recogemos aquellos contactos que provienen de los
         clientes de las representadas.
         Va a haber dos campos con los valores restringidos, departamento y
         nivel_responsabilidad.'''
     DEPARTAMENTO = (
+        ('PA', 'Propiedad'),
         ('C', 'Comercial'),
         ('F', 'Financiero'),
         ('A', 'Almacén'),
@@ -93,7 +90,7 @@ class contacto_cliente_representada(models.Model):
         ('M', 'Medio'),
         ('B', 'Bajo'),
     )
-    idcliente_representada = models.ForeignKey(cliente_representada, on_delete=models.CASCADE)
+    idcliente_representada = models.ForeignKey(Cliente_Representada, on_delete=models.CASCADE)
     idcontacto_cliente_representada = models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=45)
     telefono_movil = models.IntegerField(blank=True)
@@ -101,11 +98,21 @@ class contacto_cliente_representada(models.Model):
     nivel_decision = models.CharField(max_length=45, choices=NIVEL_DECISION)
     departamento = models.CharField(max_length=45, choices=DEPARTAMENTO)
 
-class stuff_ventas (models.Model):
+class Stuff_Ventas (models.Model):
 
     '''En esta clase vamos a recoger a los actores de las ventas de dyrb'''
 
     idstuff_ventas= models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=45)
     telefono_movil = models.IntegerField(blank=True)
-    email = models.EmailField(max_length=200, blank=True, unique=True)
+    email = models.EmailField(max_length=200, blank=False, unique=True,
+        error_messages={'blank': 'Por favor, introduzca una dirección de correo valida',
+                        'unique': 'Una cuenta con esta dirección de correo ya existe.'},)
+
+class Representacion (models.Model):
+    '''En esta tabla recogemos las relaciones entre las tablas de comercial,
+    cliente_representada y representada'''
+    idrepresentacion = models.AutoField(primary_key=True)
+    idrepresentada = models.ForeignKey(Representada, on_delete=models.CASCADE)
+    idcliente_representada = models.ForeignKey(Cliente_Representada, on_delete=models.CASCADE)
+    idstuff_ventas = models.ForeignKey(Stuff_Ventas, on_delete=models.CASCADE)
