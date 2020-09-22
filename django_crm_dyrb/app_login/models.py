@@ -98,11 +98,11 @@ class Contacto_Cliente_Representada(models.Model):
     nivel_decision = models.CharField(max_length=45, choices=NIVEL_DECISION)
     departamento = models.CharField(max_length=45, choices=DEPARTAMENTO)
 
-class Stuff_Ventas (models.Model):
+class Staff_Ventas (models.Model):
 
     '''En esta clase vamos a recoger a los actores de las ventas de dyrb'''
 
-    idstuff_ventas= models.AutoField(primary_key=True)
+    idstaff_ventas= models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=45)
     telefono_movil = models.IntegerField(blank=True)
     email = models.EmailField(max_length=200, blank=False, unique=True,
@@ -115,4 +115,4 @@ class Representacion (models.Model):
     idrepresentacion = models.AutoField(primary_key=True)
     idrepresentada = models.ForeignKey(Representada, on_delete=models.CASCADE)
     idcliente_representada = models.ForeignKey(Cliente_Representada, on_delete=models.CASCADE)
-    idstuff_ventas = models.ForeignKey(Stuff_Ventas, on_delete=models.CASCADE)
+    idstaff_ventas = models.ForeignKey(Staff_Ventas, on_delete=models.CASCADE)
