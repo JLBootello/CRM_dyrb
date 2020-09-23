@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.representada.as_view(), name='representada'),
+    path('nuevarepresentada', views.RepresentadaView.as_view(), name='nueva_representada'),
+    path('listarepresentadas', views.RepresentadaUpdateView.as_view(), name='lista_representadas'),
 ]

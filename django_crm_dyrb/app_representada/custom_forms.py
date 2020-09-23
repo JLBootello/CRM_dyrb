@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from app_login.models import Representada
+from .models import Representada
 
 class RepresentadaForm(ModelForm):
     class Meta:
