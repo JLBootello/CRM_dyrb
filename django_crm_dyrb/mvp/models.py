@@ -36,6 +36,7 @@ class Contacto_Representada(models.Model):
         ('B', 'Bajo'),
     )
     idrepresentada = models.ForeignKey(Representada, on_delete=models.CASCADE)
+    #nombre_comercial = models.ForeignKey(Representada, on_delete=models.CASCADE)
     idcontacto_representada = models.AutoField(primary_key=True)
     nombre_completo = models.CharField(max_length=45, blank=False)
     telefono_movil = models.IntegerField(blank=True)

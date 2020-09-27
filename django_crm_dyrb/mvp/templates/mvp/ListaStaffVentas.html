@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Staff Ventas</title>
+</head>
+<body>
+<h1>Staff Ventas</h1>
+<ul>
+{% for staff_venta in object_list %}
+    <li>{{ staff_venta.nombre_completo }} -
+        {{ staff_venta.telefono_movil }} -
+        {{ staff_venta.email }}</li>
+{% empty %}
+    <li>No hay Personal del Staff de Ventas que listar</li>
+{% endfor %}
+</ul>
+</body>
+</html>
