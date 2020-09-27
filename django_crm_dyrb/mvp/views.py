@@ -10,8 +10,8 @@ from .models import Representada
 class RepresentadaView(generic.CreateView):
 	form_class = RepresentadaForm
 	success_url = reverse_lazy('representada')
-	template_name = 'app_representada/form_Representada.html'
+	template_name = 'mvp/form_Representada.html'
 
 class RepresentadaUpdateView (generic.ListView):
 	model = Representada
-	template_name = 'app_representada/listarepresentada.html'
+	template_name = 'mvp/listarepresentada.html'

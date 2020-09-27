@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'app_representada',
+    'mvp',
     'app_login',
     'app1_crm_dyrb',
     'django.contrib.admin',
