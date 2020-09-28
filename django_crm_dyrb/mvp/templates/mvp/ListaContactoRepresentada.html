@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Contactos Representadas</title>
+</head>
+<body>
+<h1>Contactos Representadas</h1>
+<ul>
+{% for contacto_representada in object_list %}
+    <li>{{ contacto_representada.nombre_completo }} -
+        {{ contacto_representada.telefono_movil }} -
+        {{ contacto_representada.email }} -
+        {{ contacto_representada.nivel_decision }} -
+        {{ contacto_representada.departamento }}</li>
+{% empty %}
+    <li>No hay Contactos Representadas que listar</li>
+{% endfor %}
+</ul>
+</body>
+</html>

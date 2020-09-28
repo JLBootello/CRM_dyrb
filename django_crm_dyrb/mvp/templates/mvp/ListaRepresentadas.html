@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Representadas</title>
+</head>
+<body>
+<h1>Representadas</h1>
+<ul>
+{% for representada in object_list %}
+    <li>{{ representada.nombre_comercial }} - {{ representada.provincia }}</li>
+{% empty %}
+    <li>No hay Representadas que listar</li>
+{% endfor %}
+</ul>
+</body>
+</html>

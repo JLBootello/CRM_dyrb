@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista Clientes Representadas</title>
+</head>
+<body>
+<h1>Clientes Representadas</h1>
+<ul>
+{% for cliente_representada in object_list %}
+    <li>{{ cliente_representada.nombre_completo }} -
+        {{ cliente_representada.telefono_movil }} -
+        {{ cliente_representada.email }} -
+        {{ cliente_representada.nivel_decision }} -
+        {{ cliente_representada.departamento }}</li>
+{% empty %}
+    <li>No hay Clientes Representadas que listar</li>
+{% endfor %}
+</ul>
+</body>
+</html>
