@@ -9,12 +9,18 @@ from .models import Representada, Contacto_Representada, Cliente_Representada, S
 # Create your views here.
 class RepresentadaView(generic.CreateView):
 	form_class = RepresentadaForm
-	success_url = reverse_lazy('nuevarepresentada')
+	success_url = reverse_lazy('nueva_representada')
 	template_name = 'mvp/FormRepresentada.html'
 
-class RepresentadaUpdateView (generic.ListView):
+class RepresentadaListView (generic.ListView):
 	model = Representada
 	template_name = 'mvp/ListaRepresentadas.html'
+
+class RepresentadaUpdateView(generic.UpdateView):
+	form_class = RepresentadaForm
+	success_url = reverse_lazy('lista_representadas')
+	template_name = 'mvp/FormRepresentada.html'
+	queryset = Representada.objects.all()
 
 class ContactoRepresentadaView(generic.CreateView):
 	form_class = ContactoRepresentadaForm
