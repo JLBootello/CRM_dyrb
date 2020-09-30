@@ -8,10 +8,11 @@
 <h1>Representadas</h1>
 <ul>
 {% for representada in object_list %}
-    <li>{{ representada.nombre_comercial }} - {{ representada.provincia }}</li>
+    <li><a href = "{% url 'edita_representadas' representada.pk %}">Editar Representada</a> {{ representada.nombre_comercial }} - {{ representada.provincia }}</li>
 {% empty %}
     <li>No hay Representadas que listar</li>
 {% endfor %}
 </ul>
+<a href = "{% url 'nueva_representada' %}">Crear Representada</a>
 </body>
 </html>
