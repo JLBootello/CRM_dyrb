@@ -6,9 +6,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-<form method="post">
+  <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enter</button>
+        {%for field in form%}
+            <label for="{{field.name}}" title="{{field.help_text}}">{{field.label}}</label>
+            {{field}}
+            <br>
+        {% endfor %}
+      <button type="submit">Enter</button>
+  </form>
+
 </body>
 </html>
