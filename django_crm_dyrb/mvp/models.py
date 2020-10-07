@@ -71,11 +71,20 @@ class Cliente_Representada (models.Model):
         ('DR','Detall Regalo'),
         ('DJ','Detall Juguetes'),
     )
+    NIVEL_CLIENTE = (
+        ('A', 'A'),
+        ('B', 'B'),
+        ('C', 'C'),
+        ('D', 'D'),
+        ('E', 'E'),
+        ('F', 'F'),
+    )
     idcliente_representada = models.AutoField(primary_key=True)
     nombre_fiscal = models.CharField(max_length=45, blank=False)
     cif = models.CharField(max_length=45,blank=False)
     nombre_comercial = models.CharField(max_length=45)
     tipo_cliente = models.CharField(max_length=60, choices=TIPO_DE_CLIENTE)
+    nivel_cliente = models.CharField(max_length=60, choices=NIVEL_CLIENTE)
     direccion = models.CharField(max_length=200)
     localidad = models.CharField(max_length=200)
     provincia = models.CharField(max_length=60)
