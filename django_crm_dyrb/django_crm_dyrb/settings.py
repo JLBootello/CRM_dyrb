@@ -117,6 +117,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
 PHONENUMBER_DB_FORMAT = 'RFC3966'
 
 # Static files (CSS, JavaScript, Images)

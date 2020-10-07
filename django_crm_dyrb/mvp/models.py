@@ -55,10 +55,27 @@ class Contacto_Representada(models.Model):
 
 
 class Cliente_Representada (models.Model):
+    '''En esta tabla vamos a recoger todos los clientes de nuestras representadas que
+    gestionamos. '''
+    TIPO_DE_CLIENTE = (
+        ('AP','Almacén Papelería'),
+        ('AR','Almacén Regalo'),
+        ('AM','Almacén Multiprecio'),
+        ('AA','Almacén Amarillo'),
+        ('AJ','Almacén Juguetes'),
+        ('SC','Suministrador Colegios'),
+        ('SO','Suministrador de Oficinas'),
+        ('DP','Detall Papeleria'),
+        ('DB','Detall Bellas Artes'),
+        ('DA','Detall Amarillo'),
+        ('DR','Detall Regalo'),
+        ('DJ','Detall Juguetes'),
+    )
     idcliente_representada = models.AutoField(primary_key=True)
     nombre_fiscal = models.CharField(max_length=45, blank=False)
     cif = models.CharField(max_length=45,blank=False)
     nombre_comercial = models.CharField(max_length=45)
+    tipo_cliente = models.CharField(max_length=60, choices=TIPO_DE_CLIENTE)
     direccion = models.CharField(max_length=200)
     localidad = models.CharField(max_length=200)
     provincia = models.CharField(max_length=60)
