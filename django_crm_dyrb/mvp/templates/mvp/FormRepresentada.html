@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+ {% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Representada</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enter</button>
+ <img src="{% static "mvp/images/marca-principal-01-sin-fondo.png" %}" alt="Imagen DyRB"/>
+  <h1>Nombre: {{ representada.nombre_comercial }}---IdRepresentada:{{ representada.idrepresentada }}</h1>
+
+  <p><strong>Localidad:</strong> {{ representada.localidad }}</p>
+  <p><strong>Provincia:</strong> {{ representada.provincia }}</p>
+
+  {% if is_paginated %}
+      <div class="pagination">
+          <span class="page-links">
+              {% if page_obj.has_previous %}
+                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
+              {% endif %}
+              <span class="page-current">
+                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+              </span>
+              {% if page_obj.has_next %}
+                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
+              {% endif %}
+          </span>
+      </div>
+  {% endif %}
+
+
+
 </body>
 </html>
