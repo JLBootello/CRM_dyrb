@@ -18,6 +18,8 @@ class Representada(models.Model):
         error_messages={'blank': 'Por favor, introduzca una dirección de correo valida',
                         'unique': 'Una cuenta con esta dirección de correo ya existe.'},)
     web = models.CharField(max_length=200)
+    logo = models.CharField(max_length=500, blank=True)
+
     def __str__(self):
         return self.nombre_comercial
 
