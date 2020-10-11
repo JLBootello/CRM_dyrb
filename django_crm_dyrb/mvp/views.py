@@ -23,7 +23,8 @@ class NuevaRepresentadaView(generic.CreateView):
 
 class RepresentadaListView(generic.ListView):
     model = Representada
-    template_name = 'mvp/ListaRepresentadas.html'
+    template_name = 'mvp/VisualRepresentadas.html'
+
 
 
 class RepresentadaUpdateView(generic.UpdateView):
