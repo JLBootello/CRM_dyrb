@@ -65,6 +65,12 @@ class StaffVentasView(generic.CreateView):
 class StaffVentasUpdateView(generic.ListView):
     model = Staff_Ventas
     template_name = 'mvp/ListaStaffVentas.html'
-
+'''
 def VistaModulos(request):
-    return render(request, 'mvp/index.html', {})
+    return render(request, 'mvp/Vistamodulos.html', {})
+'''
+class VistaModulosView(generic.TemplateView):
+    template_name = 'mvp/Vistamodulos.html'
+
+class VistaModuloComercialView(generic.TemplateView):
+    template_name = 'mvp/ModuloComercial.html'

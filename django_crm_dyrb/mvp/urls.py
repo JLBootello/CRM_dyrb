@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('vistamodulos', views.VistaModulos, name='vista_modulos'),
+    path('modcomercial', views.VistaModuloComercialView.as_view(), name='modulo_comercial'),
+    path('vistamodulos', views.VistaModulosView.as_view(), name='vista_modulos'),
     path('representada/<int:pk>', views.RepresentadaDetailView.as_view(), name='representada'),
     path('nuevarepresentada', views.NuevaRepresentadaView.as_view(), name='nueva_representada'),
     path('listarepresentadas', views.RepresentadaListView.as_view(), name='lista_representadas'),
