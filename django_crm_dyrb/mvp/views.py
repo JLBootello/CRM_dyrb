@@ -5,17 +5,18 @@ from django.views import generic
 from .custom_forms import RepresentadaForm, ContactoRepresentadaForm, ClienteRepresentadaForm, StaffVentasForm
 from django.urls import reverse_lazy
 from .models import Representada, Contacto_Representada, Cliente_Representada, Staff_Ventas
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 
-class RepresentadaDetailView(generic.DetailView):
+class RepresentadaDetailView(LoginRequiredMixin,generic.DetailView):
     model = Representada
     template_name = 'mvp/FormRepresentada.html'
     queryset = Representada.objects.all()
+    redirect_field_name = 'redirigiendo_a'
+    login_url = reverse_lazy ('login:index')
 
-
-class NuevaRepresentadaView(generic.CreateView):
+class NuevaRepresentadaView(LoginRequiredMixin,generic.CreateView):
     form_class = RepresentadaForm
     success_url = reverse_lazy('nueva_representada')
     template_name = 'mvp/FormNuevaRepresentada.html'
@@ -74,3 +75,4 @@ class VistaModulosView(generic.TemplateView):
 
 class VistaModuloComercialView(generic.TemplateView):
     template_name = 'mvp/ModuloComercial.html'
+
