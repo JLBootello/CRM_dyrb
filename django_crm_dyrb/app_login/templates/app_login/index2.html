@@ -30,7 +30,7 @@
                             <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis quam numquam</h5>
                         </div>
                         <div class="login-body">
-                            <form role="form" action="{% url 'index' %}" method="post" class="login-form">
+                            <form role="form" action="{% url 'login:index' %}" method="post" class="login-form">
                                 {% csrf_token %}
                                 <div class="form-group ">
                                     <div class="pos-r">

@@ -1,0 +1,34 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+header{
+    padding-top: 0em;
+    padding-bottom: 0em;
+    column-count: 2;
+}
+header contenedor logo {
+    width: 80%;
+    float: left;
+    background-color: aqua; 
+    }
+
+hr{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+header p{
+    
+}
+footer {
+    align-items: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+section article {
+    padding-left: 2em;
+    padding-right: 2em;
+}
