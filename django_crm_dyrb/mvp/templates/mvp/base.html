@@ -6,39 +6,49 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  
 </head>
 <body>
+  
   <section id="cabecera">
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-6">
-          <img src="/mvp/static/mvp/images/marcappalsinfondo_cutted.png" width="300" alt="" class="img-fluid">
-        </div>
         <div class="col-2">
-
+          <span class="text-md-left image-fluid"><img src="/mvp/static/mvp/images/marcappalsinfondo_cutted.png" width="300" alt=""></span>
+        </div>
+        <div class="col-6">
         </div>
         <div class="col-4">
-          <ul class="list-unstyled mt-5 pt-2 ml-1 small">
-            <li><i class="fas fa-truck"></i>Atenas, 49 - Pol. Ind. San Luis</li>
-            <li class="ml-4">29006  Málaga (Spain)</li>
-            <br>
-            <li><i class="fa fa-phone" aria-hidden="true"></i> 952 340 575 - 952 324 696</li>
-            <br>
-            <li><i class="fa fa-envelope-open" aria-hidden="true"></i>  info@dyrbootello.com</li>
-          </ul>
         </div>
       </div>
     </div>
   </section>
   <hr size="2px">
-  <section id="cuerpo">
-  <h1>Hola bootstrap <span class="text-muted">con html</span></h1>
-  
-
-  <p>Lorem ipsum dolor, <span class="text-muted">aqui estamos</span> sit amet consectetur adipisicing elit. <small class="text-muted">como vamos</small> Velit aperiam doloribus minus rerumoew iustq waboriosae hic, <i class="fa fa-bold">hola que tal</i> sine ipwa consequatusss eligendi unde doloremque ad saepe obcaecati dolorem quos ipsum molestias.</p>
+  <section id="cuerpo" class="mx-2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4">
+          <nav class="nav flex-column">
+            <a class="nav-link" href="#">Active</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </nav>
+        </div>
+        <div class="col-8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum nesciunt nihil, asperiores id velit autem ea, natus omnis, alias magnam tempora neque iste eos voluptates perferendis consequatur maiores? Quos nihil autem dolor a commodi numquam aperiam odio totam culpa quia?</div>
+      </div>
+    </div>
   </section>
   <hr>
-  <section id="piepagina" class="text-muted small ml-1 text-center">
+  <section id="piepagina" class="text-muted small text-center">
     <p><i class="fas fa-copyright" ></i>JLBR2020</p>
   </section>
 
