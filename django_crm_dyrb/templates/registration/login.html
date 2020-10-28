@@ -1,8 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,22 +16,13 @@
         <link rel="shortcut icon" href="assets/ico/favicon.png">
 
     </head>
-
     <body>
         <div class="container ">
             <div class="row">
                 <div class="login-container col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                     <div class="login-title text-center">
-                            <h2><span>Logo<strong>Name</strong></span></h2>
-                     </div>
                     <div class="login-content">
-                        <div class="login-header ">
-                            <h3><strong>Welcome,</strong></h3>
-                            <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis quam numquam</h5>
-                        </div>
                         <div class="login-body">
                             <form role="form" action="{% url 'accounts:login' %}" method="post" class="login-form">
-                                {% csrf_token %}
                                 <div class="form-group ">
                                     <div class="pos-r">
                                         <input   id="form-username" type="text" name="username" placeholder="Usuario..." class="form-username form-control">
@@ -58,8 +49,7 @@
                         </div> <!-- end  login-body -->
                     </div><!-- end  login-content -->
                     <div class="login-footer text-center template">
-                        <h5>Don't have an account?<a href="#" class="bold"> Sign up </a>     </h5>
-                         <h5>Bootstrap login template made by <a href="https://github.com/azouaoui-med" class="bold"> Mohamed Azouaoui</a></h5>
+                        <h5>Don't have an account?<a href="#" class="bold"> Sign up </a>
                     </div>
                 </div>  <!-- end  login-container -->
 
